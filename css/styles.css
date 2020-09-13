@@ -52,7 +52,26 @@ html {
 }
 
 .link {
+  position: relative;
   text-decoration: none;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .flexbox {
@@ -135,6 +154,7 @@ html {
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .info {
@@ -147,6 +167,7 @@ html {
   text-decoration: none;
   display: flex;
   align-items: center;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .info:hover {
@@ -168,6 +189,7 @@ html {
 .proba {
   display: flex;
   align-items: center;
+
   /* align-content: space-between; */
 }
 
@@ -318,7 +340,7 @@ html {
 }
 
 .zzz.list-item:nth-child(2)::before {
-  background-image: url(../images/clock.svg);
+  background-image: url(../images/clock-1.svg);
 }
 
 .zzz.list-item:nth-child(3)::before {
@@ -363,6 +385,30 @@ html {
   margin-right: 30px;
 }
 
+.rob {
+  display: flex;
+  position: relative;
+}
+
+.annexes {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 70px;
+  margin: 0;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
 /* наша команда */
 
 .button-a {
@@ -398,6 +444,7 @@ html {
 
 .svg-button {
   fill: #afb1b8;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .four {
@@ -448,6 +495,7 @@ html {
   border-radius: 4px;
   justify-content: center;
   align-items: center;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-one {
@@ -642,8 +690,10 @@ html {
 }
 
 .button {
+  display: inline-flex;
   color: var(--dark-color);
   background-color: var(--fon-button);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:hover,
@@ -660,6 +710,51 @@ html {
 }
 
 /* портфолио */
+
+.texno {
+  display: flex;
+  position: absolute;
+
+  width: 322px;
+  height: 168px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: #ffffff;
+
+  font-size: 18px;
+  line-height: 1.56;
+  opacity: 0;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.foto:hover .texno {
+  opacity: 1;
+}
+
+.foto {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(100%);
+}
+
+.foto:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .margin-botton .container-wrap {
   width: 1170px;
@@ -759,8 +854,60 @@ html {
   border-radius: 50%;
   justify-content: center;
   align-items: center;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .href-button.white:hover {
   background-color: var(--accent-color);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1024px;
+  background: rgba(0, 0, 0, 0.2);
+  right: 0;
+  z-index: 1;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  width: 100%;
+  max-width: 528px;
+  height: 581px;
+
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
